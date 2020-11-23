@@ -1,0 +1,460 @@
+body
+{
+    background: #F7F9FC;
+}
+
+@font-face
+{
+    font-family: ProductSans400;
+    src: url(../../../assets/fonts/ProductSans400.ttf);
+}
+@font-face
+{
+    font-family: ProductSansBold;
+    src: url(../../../assets/fonts/ProductSansBold700.ttf);
+}
+@font-face
+{
+    font-family: ProductSansItalic400;
+    src: url(../../../assets/fonts/ProductSansItalic400.ttf);
+}
+.ProductSans400
+{
+    font-family: ProductSans400;
+}
+
+.ProductSansBold
+{
+    font-family: ProductSansBold;  
+}
+
+.font-product-bold
+{
+    font-family: product-sans-bold;
+}
+
+button:focus
+{
+    outline: none;
+}
+.height_custom
+{
+    height: 75px;
+}
+
+input.search_input {
+    border: 1px solid var(--unnamed-color-2b50ed);
+    border: 1px solid #2b50ed17;
+    border-radius: 9px;
+    height: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 15px;
+    width: 300px;
+    margin-top: 10px;
+}
+
+
+
+input.search_input:focus
+{
+    outline: none;
+}
+
+.line_noti {
+    width: 51px;
+    height: 51px;
+    background: #F7F9FC;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 47px;
+}
+
+.body_al {
+    background: #F7F9FC;
+ 
+}
+
+img.img_header {
+    margin-left: 40px;
+}
+
+.line_header {
+    width: 1px;
+    height: 40px;
+    background: #a5a9ad;
+    margin-top: 4px;
+}
+
+.box_account {
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 21px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 15px;
+}
+
+button.btn_account {
+    background: transparent linear-gradient(284deg, #2B50ED 0%, #6B85F2 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+button.btn_account a {
+    color: #fff;
+    font-family: Productsansbold;
+    border: none;
+    text-decoration: none;
+}
+
+
+button.btn_subscribe {
+    background: transparent;
+    border: none;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+button.btn_subscribe a {
+    color: #000;
+    font-family: Productsansbold;
+    text-decoration: none;
+}
+
+p.para_box {
+    text-align: center;
+    color: #979797;
+    font-size: 18px;
+    font-family: Productsans400;
+    padding-top: 30px;
+}
+img.img_big {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-top: 150px;
+    height: 150px;
+}
+
+img.img_large {
+    width: 131px;
+    height: 130px;
+    border-radius:50%;
+}
+
+.btn_same {
+    border-radius: 8px;
+    width: 100%;
+    height: 40px;
+    margin-top: 16px;
+    font-family: Productsansbold;
+    font-size: 14px;
+    background: transparent;
+    border: none;
+}
+
+button.btn_change {
+    background: transparent linear-gradient(284deg, #2B50ED 0%, #6B85F2 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+}
+
+button.btn_remove {
+    background: #F7F9FC 0% 0% no-repeat padding-box;
+}
+
+label.lab_first {
+    color: #979797;
+    letter-spacing: 0px;
+    font-family: Productsans400;
+    display: block;
+}
+
+input.form_profile {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 10px #0000001A;
+    border-radius: 10px;
+    height: 40px;
+    border: none;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+button.edit_btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    background: transparent;
+    font-family: 'ProductSansBold';
+    border: none;
+    margin-right: 15px;
+    /* float: right; */
+}
+button.edit_btn.bg-edit {
+    background: transparent linear-gradient(284deg, #2B50ED 0%, #6B85F2 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    color: #fff;
+}
+button.edit_btn.bg-edit-white {
+    background: #F7F9FC 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+}
+input.form_profile:focus
+{
+    outline: none;
+}
+
+h3.head_avtar {
+    letter-spacing: 0px;
+    color: #000000;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    font-family: productsansbold;
+    font-size: 21px;
+}
+
+h3.head_personal {
+    letter-spacing: 0px;
+    color: #000000;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    font-family: productsansbold;
+    font-size: 21px;
+}
+@media(min-width:1100px)
+{
+.box_account {
+    max-width: 73%;
+    margin-right: 11px;
+}
+label.lab_first_edit {
+    font-size: 18px;
+    font-family: productsansbold;
+    letter-spacing: 0px;
+    color: #000000;
+}
+}
+
+img.img_header_p {
+    height: 45px;
+}
+
+i.font-angle {
+    font-size: 26px !important;
+    color: #000;
+    margin-left: 5px;
+    position: relative;
+    top: 5px;
+}
+
+input.radio_mvp {
+    width: 20px;
+    height: 20px;
+}
+
+
+img.social_icon {
+    height: 40px;
+    margin-top: -7px;
+}
+
+ul.under_list_icon {
+    margin: 0;
+    padding: 0;
+    margin-left: 14px;
+    width:100%;
+}
+
+ul.under_list_icon li {
+    list-style: none;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding-bottom: 12px;
+    margin-top: 25px;
+}
+
+p.sigin {
+    font-size: 16px;
+    font-family: productsansbold;
+   
+}
+
+h3.head_linked_account {
+    font-size: 22px;
+    font-family: Productsansbold;
+}
+
+p.para_linked {
+    color: #979797;
+    line-height: 1.3;
+    font-family: productsans400;
+    font-size: 16px;
+}
+
+button.btn_connect {
+    background: transparent linear-gradient(284deg, #2B50ED 0%, #6B85F2 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #fff;
+    font-family: productsansbold;
+    height: 38px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: none;
+    margin-left: 15px;
+}
+
+@media(min-width: 768px) and (max-width:1024px)
+{
+    img.img_large
+    {
+        width: 115px;
+        height: 115px;
+    }
+    img.img_header
+    {
+        margin-left: 15px;
+    }
+}
+
+@media(max-width:767px)
+{
+    img.img_header
+    {
+        margin-left: 5px;
+    }
+    .height_custom
+    {
+        height: auto;
+    }
+}
+
+.cusom_flex_profile {
+    display: flex;
+    justify-content: space-between;
+}
+
+button.btn_pro {
+    background: #000000 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    height: 40px;
+    color: #fff;
+    font-family: productsansbold;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 7px;
+}
+
+label.lab_gender {
+    line-height: 0;
+    font-size: 15px;
+    font-family: Productsansbold;
+    margin-left: 8px;
+    position: relative;
+    top: -4px;
+    margin-right: 8px;
+}
+@media(min-width:768px)
+{
+.custom_profile_mvp {
+    height: 600px;
+}
+}
+
+@media(max-width: 767px)
+{
+    img.img_big
+    {
+     display: none;
+     }
+}
+
+@media (min-width: 768px)
+{
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    left: -150px;
+    position: absolute;
+}
+}
+
+.dropdown-menu.custom_drop.show {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 6px #00000017;
+    border: none;
+    border-radius: 15px;
+}
+
+.dropdown-menu.custom_drop.show a {
+    color: #000;
+    font-family: Productsans400;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.dropdown-menu.custom_drop.show img {
+    margin-right: 10px;
+}
+
+img.avtar_img {
+    height: 40px;
+}
+
+p.para_premium {
+    line-height: 0;
+    color: #979797;
+    font-size: 12px;
+}
+
+h4.head_member {
+    font-size: 18px;
+}
+
+@media(max-width:767px)
+{
+    button.btn_subscribe
+    {
+        display: initial;
+    }
+    button.btn_account
+    {
+       
+        width: initial;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .line_header
+    {
+        display: none;
+    }
+}
+
+label.icon_set {
+   
+    border: 1px solid #CCCCCC;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    margin-left: 10px;
+}
+
+label.icon_set.color_icon1 {
+    background: transparent linear-gradient(132deg, #6B85F2 0%, #2B50ED 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+    border: none;
+}
+
+img.img_avtar_1 {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    margin-top:15px;
+}
+.redColor{
+    color: #FF1818;
+}

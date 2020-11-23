@@ -1,0 +1,399 @@
+
+
+  main {
+    display: -webkit-box;
+    display: flex;
+    height: 100%;
+    padding-bottom: 70px;
+    background: #F7F9FC;
+  }
+  
+  .content {
+    -webkit-box-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-content: space-around;
+    padding: 7px;
+  }
+  
+  .row {
+    min-height: 50px;
+    -webkit-box-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-flow: row nowrap;
+    justify-content: space-around;
+    align-content: space-around;
+  }
+  .row.resizable {
+    -webkit-box-flex: 0;
+            flex: 0 0 300px;
+  }
+  
+  section {
+    box-sizing: border-box;
+    
+    padding: 1.25em 1.75em;
+   
+    -webkit-box-flex: 1;
+            flex: 1;
+    min-width: 30px;
+  }
+  section.resizable {
+    -webkit-box-flex: 0;
+            flex: 0 0 300px;
+  }
+  
+  #one {
+    color: #000;
+    border: 1px dashed #E1E1E1;
+    /* cursor: col-resize; */
+  }
+  
+  #two {
+    color: #000;
+    border: 1px dashed #E1E1E1;
+    /* //cursor: col-resize; */
+  }
+  
+  #three {
+    color: #000;
+    border: 1px dashed #E1E1E1;
+    /* cursor: col-resize; */
+  }
+  
+  
+  
+  
+  .resizable {
+    position: relative;
+  }
+  .resizable.no-transition {
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+  
+  .rg-right, .rg-left, .rg-top, .rg-bottom {
+    display: block;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    position: absolute;
+    z-index: 1;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .rg-right span, .rg-left span, .rg-top span, .rg-bottom span {
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    border: 1px solid #ccc;
+  }
+  
+  .rg-right span, .rg-left span {
+    border-width: 0 1px;
+    top: 50%;
+    margin-top: -10px;
+    margin: -10px 0 0 3.5px;
+    height: 20px;
+    width: 7px;
+  }
+  
+  .rg-top span, .rg-bottom span {
+    border-width: 1px 0;
+    left: 50%;
+    margin: 3.5px 0 0 -10px;
+    width: 20px;
+    height: 7px;
+  }
+  
+  .rg-top {
+    /* cursor: row-resize; */
+    width: 100%;
+    top: 0;
+    left: 0;
+    margin-top: -7px;
+  }
+  
+  .rg-right {
+    /* cursor: col-resize; */
+    height: 100%;
+    right: 0;
+    top: 0;
+    margin-right: -14px;
+  }
+  
+  .rg-bottom {
+    /* cursor: row-resize; */
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    margin-bottom: -7px;
+  }
+  
+  .rg-left {
+    /* cursor: col-resize; */
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin-left: -14px;
+  }
+  *,*::before,*::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+html{
+    font-size: 1.1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans','Arial', sans-serif;
+
+}
+
+.toolbar{
+  display: flex;
+  color: #979797;
+  grid-gap: 1.5rem;
+  padding: 0.5rem;
+  justify-content: left;
+  align-items: center;
+  border-top: 1px solid #97979738;
+  border-bottom: 1px solid #97979747;
+  padding-left: 41px;
+}
+
+.tool-items{
+  background-color: transparent;
+  /* padding-top: .6rem; */
+  /* padding-bottom: .6rem; */
+  cursor: pointer;
+  color: #979797;
+  border: none;
+}
+.tool-items:hover{
+    box-shadow: none;
+    width: 25px;
+    height:25px;
+    background: #fae8e8;
+    border:1px solid black;
+
+}
+
+
+
+.center{
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+}
+
+
+
+.editor{
+  width:1140px;
+  /* height: 100vh; */
+  margin: 2rem;
+  /* padding: 20px; */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 0px 6px #0000001A;
+margin-left: 8px;
+margin-right: 0;
+
+ 
+}
+
+.getcontent{
+    white-space: pre;
+    width: 80vw;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+    padding: 1rem;
+    display: none;
+    margin-top: 1rem;
+    box-shadow: .1rem .1rem .5rem rgb(255, 255, 255);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.editor_45 {
+  width: 300px;
+  border-right: 1px dashed #ccc;
+  border-bottom: 1px dashed #ccc;
+  /* float: left; */
+  height: 100vh;
+  /* cursor: col-resize; */
+  overflow: hidden;
+  padding: 20px;
+}
+
+.editor_ab {
+  width: 840px;
+  border-bottom: 1px dashed #ccc;
+  height: 100vh;
+  /* float: right; */
+  /* cursor: col-resize; */
+  overflow: hidden;
+  padding: 20px;
+}
+.editor_3
+{
+  width: 1140px;
+  border-bottom: 1px dashed #ccc;
+  height: 400px;
+  padding: 20px;
+  overflow: hidden;
+
+}
+
+.btn{
+      padding: .5rem;
+      background-color: #7e1111;
+      margin-right: 1rem;
+      color: #fffffc;
+      letter-spacing: .1rem;
+      font-size: 1rem;
+      border-radius: .2rem;
+      cursor: pointer;
+      outline: none;
+      box-shadow: 0 .4rem .4rem black;
+      transition: all .3s;
+}
+
+.btn:hover{
+      background-color: #7e1111d0;
+      box-shadow: 0 .1rem .1rem black;
+}
+
+
+label {
+    margin-left: 0.04rem;
+    padding-left:.7rem
+}
+
+.cues{
+  padding: 5px;
+  border:2px dotted black;
+}
+
+.editor img {
+  max-width: 100% !important;
+}
+.image{
+  max-width: 100% !important;
+
+}
+
+.div1 {
+  position: relative;
+  width:20vw;
+  height:20vh;
+  background: lightblue;
+  flex-grow:0;
+}
+
+.div2 {
+  position: relative;
+  width:20vw;
+  height:20vh;
+  background: green;
+  flex-grow:0;
+}
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+select.slect_option {
+  border: none;
+  font-size: 14px;
+  font-family: 'ProductSans400';
+  color: #a4a4a4;
+}
+
+select.slect_option:focus
+{
+  outline: none;
+
+}
+.sticky-top-c
+{
+position: -webkit-sticky;
+position: sticky;
+z-index: 1020;
+top: 75px;
+background-color: #fff;
+}
+
+.mystyle {
+  box-shadow: none;
+  width: 25px;
+ height:25px;
+ border:1px solid black !important;
+ background: #fff !important;
+}

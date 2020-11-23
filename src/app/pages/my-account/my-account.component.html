@@ -1,0 +1,360 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white height_custom sticky-top">
+    <a class="navbar-brand" [routerLink]="['/quickAccess']">
+        <img src="../../../assets/images/header_logo.png" class="img_header"/>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          
+              <div class="form">
+                  <input type="search" placeholder="Search" class="search_input"/>
+              </div>
+       
+          
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <div class="line_noti">
+                    <img src="../../../assets/images/notification.svg" class="notification_images"/>
+                </div>
+               
+            </a>
+            
+          </li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+             <div class="line_header">
+                 
+             </div>
+            </a>
+            
+          </li>
+       
+          <div class="dropdown">
+          <li class="nav-item"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link" href="#">
+                <img src="../../../assets/images/avtar.png"class="img_header_p"/>
+
+                <i class="fa fa-angle-down font-angle"></i>
+            </a>
+            
+            <div class="dropdown-menu custom_drop" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="../../../assets/images/avtar.png" class="avtar_img"/> 
+                        </div>
+                        <div class="col-9">
+                            <h4 class="head_member"> {{firstName}} {{lastName}}</h4>
+                            <p class="para_premium">Premium member</p>
+                        </div>
+                    </div>
+                  </a>
+                <a class="dropdown-item" href="#"><img src="../../../assets/images/profile1.svg"/> My Account</a>
+                <a class="dropdown-item" href="#"><img src="../../../assets/images/profile2.svg"/> Subscription</a>
+                <a class="dropdown-item" href="#"><img src="../../../assets/images/profile3.svg"/> Privacy & Terms of use</a>
+                <a class="dropdown-item" (click)="signOut()"><img src="../../../assets/images/profile1.svg"/> Sign out</a>
+              </div>
+          </li>
+        </div>
+
+       
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="body_al">
+      <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 box_account custom_profile_mvp">
+                   <button class="btn_account">
+                       <a href="#">
+                        My Account
+                       </a>
+                   </button>
+                   <button class="btn_subscribe">
+                    <a href="#">
+                        Subscription
+                    </a>
+                </button>
+
+                <div class="box-bottom">
+                 <img src="../../../assets/images/big-shoes.png" class="img_big" />
+                 
+                </div>
+                </div>
+                <div class="col-xl-9 col-lg-9 col-md-9 box_account">
+                    <div class="cusom_flex_profile">
+                        <h3 class="head_avtar">Avatar</h3>
+                        <button class="btn_pro">Pro User</button>
+                    </div>
+                    
+                    <div class="row">
+                        <div *ngIf="profileImage==null"class="col-lg-2 col-md-3 col-5">
+
+                            <img src="../../../assets/images/avtar.png" class="img_large"/>
+                        </div>
+                        <div *ngIf="profileImage!=null"class="col-lg-2 col-md-3 col-5">
+
+                          <img src="{{ profileImage}}" class="img_large"/>
+                      </div>
+                            <div class="col-lg-2 col-md-3 col-4">
+                           <input type="file" id="imgupload" style="display:none" (change)="onProfileChange($event)" accept="image/*" #fileInput/>                          
+
+                            <button id="OpenImgUpload" class="btn_change btn_same">Change</button>
+                            <button class="btn_remove btn_same">Remove </button>
+                        </div>
+                </div>
+                    
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <h3 class="head_personal">Personal Information</h3>
+                        </div>
+                            
+                        <div *ngIf="!edit" class="col-xl-6">
+                            
+                            <a (click)="editProfile(true)">
+                            <img src="../../../assets/images/Group 2794.png" class="img_avtar_1"/>
+
+                            </a>
+                        </div>
+
+                        <div *ngIf="edit" class="col-xl-6">
+                            <a  (click)="documentEditForm.ngSubmit.emit()"
+                            [disabled]="!documentEditForm.form.valid">
+                                <img src="../../../assets/images/right.png" class="img_avtar_1"/>
+                            </a>
+                            <a (click)="editProfile(false)">
+                                <img src="../../../assets/images/cancel.png"class="img_avtar_1"/>
+                            </a>
+
+                        </div>
+                      
+
+                      
+                       <!-- <label class="icon_set color_icon1"><i class="fa fa-check"></i></label> 
+                       <label class="icon_set color_icon2"><i class="fa fa-times"></i></label>  -->
+                      
+                    </div>
+                     
+                    <div class="row">
+                          <div class="col-lg-8">
+                                   <form class="row"   (ngSubmit)="updateProfile()"   #documentEditForm="ngForm">
+                                  <div class="col-lg-6">
+                                    <div class="form-group" [formGroup]="updateForm">
+                                        <label class="lab_first">First Name</label>
+                                        <input type="text"    class="form_profile" name="firstName" formControlName="firstName" [(ngModel)]="firstName" [ngClass]="{ 'has-error': submitted && formControls.firstName.errors }" />
+                                        <div class="alert- mt-2" *ngIf=" submitted && formControls.firstName.errors || updateForm.controls['firstName'].dirty || updateForm.controls['firstName'].touched">
+                                          <ng-container *ngIf="updateForm.controls['firstName'].hasError('required')">
+                                            <span class="redColor">first Name is required</span>
+                                          </ng-container>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                       <div class="form-group"  [formGroup]="updateForm">
+                                          <label class="lab_first">Last Name</label>
+                                          <input type="text" class="form_profile" name="lastName" formControlName="lastName" [(ngModel)]="lastName" [ngClass]="{ 'has-error': submitted && formControls.lastName.errors }"/>
+                                          <div class="alert- mt-2" *ngIf=" submitted && formControls.lastName.errors || updateForm.controls['lastName'].dirty || updateForm.controls['lastName'].touched">
+                                            <ng-container *ngIf="updateForm.controls['lastName'].hasError('required')">
+                                              <span class="redColor">Last Name is required</span>
+                                            </ng-container>
+                                          </div>
+                                        </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="form-group" >
+                                        <label class="lab_first">Gender</label>
+                                        <input type="radio" [disabled]=!edit value="male"  [(ngModel)]="gender"  name="gender" class="" class="radio_mvp"/><label class="lab_gender">Male</label> 
+                                        <input type="radio" [disabled]=!edit  value="female" [(ngModel)]="gender" name="gender" class=""class="radio_mvp"/> <label class="lab_gender">Female</label>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                  
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="form-group" [formGroup]="updateForm">
+                                        <label class="lab_first_edit" >Email Address</label>
+                                        <input type="text" [disabled]=!edit name="email" [(ngModel)]="email" formControlName="email" class="form_profile" required [ngClass]="{ 'has-error': submitted && formControls.email.errors }"/>
+                                        <div class="alert- mt-2" *ngIf=" submitted && formControls.email.errors || updateForm.controls['email'].dirty || updateForm.controls['email'].touched">
+                                            <ng-container *ngIf="updateForm.controls['email'].hasError('required')">
+                                              <span class="redColor">Email is required</span>
+                                            </ng-container>
+                                            <ng-container *ngIf="updateForm.controls['email'].hasError('pattern');">
+                                              <span class="redColor">Please enter valid email</span>
+                                            </ng-container>
+                                          </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                  
+                                </div>
+                             </form>
+                              <div class="row">
+                                <div class="col-xl-6">
+                                    <h3 class="head_personal">For Change password</h3>
+                                </div>
+                                <div class="col-lg-6">
+                                  
+                                </div>
+                                <div class="col-lg-6 ">
+                                    <button (click)="openModal(template)" class="btn_connect">
+                                        Change Password
+                                    </button>
+                                </div>
+                                  
+                                  
+                              </div>
+                          </div>
+                    </div>
+
+                    <hr class="line">
+
+                    <h3 class="head_linked_account">Linked Account</h3>
+                    <p class="para_linked">We use this to let you sign in populate your profile information</p>
+                <div class="row">
+                    <ul class="under_list_icon">
+                      <li *ngIf="socialLogin=='GOOGLE'">
+                           <div class="row">
+                               <div class="col-xl-1 col-lg-1 col-md-1 col-2">
+                                   <img src="../../../assets/images/google.png" class="social_icon"/>
+                               </div>
+
+                               <div class="col-xl-8 col-lg-8 col-md-7 col-5">
+                               <p class="sigin">Sign in with google </p>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-4">
+                                
+                            </div>
+                           </div> 
+                        </li>
+
+                        <li *ngIf="socialLogin=='FACEBOOK'">
+                            <div class="row">
+                                <div class="col-xl-1 col-lg-1 col-md-1 col-2">
+                                    <img src="../../../assets/images/facebook.svg"class="social_icon"/>
+                                </div>
+ 
+                                <div class="col-xl-8 col-lg-8 col-md-7 col-5">
+                                <p class="sigin">Sign in with facebook </p>
+                             </div>
+                             <div class="col-xl-3 col-lg-3 col-md-4 col-4">
+                               
+                            </div>
+                            </div> 
+                         </li>
+
+                         <li>
+                             <div class="row">
+                                <div class="col-xl-10">
+                                    <p class="sigin">Delete account </p>
+                                </div>
+                                <div class="col-xl-8">
+
+                                </div>
+
+                             </div>
+                          
+                         </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+      </div>
+      </div>
+      
+  
+ 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Update password</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <form  [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+      <div class=row>
+        <div class="col-md-12">
+            <!-- <div class="form-group">
+                <label class="lab_first">Old Password</label>
+                <input type="password" class="form_profile" placeholder="" formControlName="password"  [ngClass]="{ 'has-error': submitted1 && passwordControls.password.errors }"/>
+                <div  class="alert- mt-2" *ngIf=" submitted1 && passwordControls.password.errors ||passwordForm.controls['password'].invalid && (passwordForm.controls['password'].dirty || passwordForm.controls['password'].touched)">
+                    <ng-container *ngIf="passwordForm.controls['password'].hasError('required');">
+                      <span class="redColor">Password is required</span>
+                    </ng-container>
+                    <ng-container *ngIf="passwordForm.controls['password'].hasError('pattern');">
+                      <span class="redColor">Please enter valid Password</span>
+                    </ng-container> 
+                    <ng-container *ngIf="passwordForm.controls['password'].hasError('minlength') || passwordForm.controls['password'].hasError('maxlength') ;">
+                        <span class="redColor">Password must be at least 6 characters and maximum 12 characters</span>
+                      </ng-container> 
+
+                  </div>
+             
+            </div> -->
+        </div>
+        <div class="col-md-12" >
+            <div class="form-group">
+                <label class="lab_first">New Password</label>
+                <input type="password" class="form_profile" placeholder="" formControlName="newPassword"  [ngClass]="{ 'has-error': submitted1 && passwordControls.newPassword.errors }"/>
+                <div  class="alert- mt-2" *ngIf=" submitted1 && passwordControls.newPassword.errors ||passwordForm.controls['newPassword'].invalid && (passwordForm.controls['newPassword'].dirty || passwordForm.controls['newPassword'].touched)">
+                    <ng-container *ngIf="passwordForm.controls['newPassword'].hasError('required');">
+                      <span class="redColor">New Password is required</span>
+                    </ng-container>
+                    <ng-container *ngIf="passwordForm.controls['newPassword'].hasError('pattern');">
+                      <span class="redColor">Please enter valid New Password</span>
+                    </ng-container> 
+                    <ng-container *ngIf="passwordForm.controls['newPassword'].hasError('minlength') || passwordForm.controls['newPassword'].hasError('maxlength') ;">
+                        <span class="redColor">New Password must be at least 6 characters and maximum 12 characters</span>
+                      </ng-container> 
+
+                  </div>
+
+            </div>
+        </div>
+        
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="lab_first">Confirm Password</label>
+                <input type="password" class="form_profile" placeholder="" formControlName="confirmPassword"  [ngClass]="{ 'has-error': submitted1 && passwordControls.confirmPassword.errors }"/>
+                <div  class="alert- mt-2" *ngIf=" submitted1 && passwordControls.confirmPassword.errors ||passwordForm.controls['confirmPassword'].invalid && (passwordForm.controls['confirmPassword'].dirty || passwordForm.controls['confirmPassword'].touched)">
+                    <ng-container *ngIf="passwordForm.controls['confirmPassword'].hasError('required');">
+                      <span class="redColor">Confirm Password is required</span>
+                    </ng-container>
+                    <ng-container *ngIf="passwordForm.controls['confirmPassword'].hasError('pattern');">
+                      <span class="redColor">Please enter valid Confirm Password</span>
+                    </ng-container> 
+                    <ng-container *ngIf="passwordForm.controls['confirmPassword'].hasError('minlength') || passwordForm.controls['confirmPassword'].hasError('maxlength') ;">
+                        <span class="redColor">Confirm Password must be at least 6 characters and maximum 12 characters</span>
+                      </ng-container> 
+
+                  </div>  
+            </div>
+        </div>
+        <div *ngIf="submitted1 && passwordControls.confirmPassword.errors ||passwordForm.controls['confirmPassword'].invalid && (passwordForm.controls['confirmPassword'].dirty || passwordForm.controls['confirmPassword'].touched)" class="alert- mt-2">
+          <!-- <div *ngIf="f.confirm_password.errors.required">Password is required.</div> -->
+          <div class="redColor" *ngIf="passwordForm.controls['confirmPassword'].errors.confirmedValidator">  Confirm Password does not match.</div>
+      </div>
+
+        <div class="row" style="width: 100%;">
+         
+          <div class="d-flex justify-content-end" style="width: 100%;">
+                  <button type="submit" class="edit_btn bg-edit">Save</button>
+                  <button class="edit_btn bg-edit-white" (click)="modalRef.hide()">Cancel</button>
+          </div>
+        </div>
+
+
+      </div>
+      </form>
+      
+  </div>
+</ng-template>

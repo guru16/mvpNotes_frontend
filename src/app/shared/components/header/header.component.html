@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-md navbar-light bg-white height_custom sticky-top">
+    <a class="navbar-brand" [routerLink]="['/quickAccess']">
+        <img src="../../../assets/images/header_logo.png" class="img_header"/>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          
+              <div class="form">
+                  <input type="search" placeholder="Search" class="search_input"/>
+              </div>
+       
+          
+        </li>
+  
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <div class="line_noti">
+                    <img src="../../../assets/images/notification.svg" class="notification_images"/>
+                </div>
+               
+            </a>
+            
+        </li>
+  
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+             <div class="line_header">
+                 
+             </div>
+            </a>
+            
+          </li>
+       
+          <div class="dropdown">
+          <li class="nav-item"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link" href="#">
+                <img src="../../../assets/images/avtar.png"class="img_header_p"/>
+  
+                <i class="fa fa-angle-down font-angle"></i>
+            </a>
+            
+            <div class="dropdown-menu custom_drop" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="../../../assets/images/avtar.png" class="avtar_img"/> 
+                        </div>
+                        <div class="col-9">
+                            <h4 class="head_member">{{firstName}} {{lastName}}</h4>
+                            <p class="para_premium">Premium member</p>
+                        </div>
+                    </div>
+                  </a>
+                <a class="dropdown-item" href="#"><img src="../../../assets/images/profile1.svg"/> My Account</a>
+                <a class="dropdown-item" href="#"><img src="../../../assets/images/profile2.svg"/> Subscription</a>
+                <a class="dropdown-item" href="#"><img src="../../../assets/images/profile3.svg"/> Privacy & Terms of use</a>
+                <a class="dropdown-item" (click)="signOut()"><img src="../../../assets/images/profile1.svg"/> Sign out</a>
+              </div>
+          </li>
+        </div>     
+      </ul>
+    </div>
+  </nav>

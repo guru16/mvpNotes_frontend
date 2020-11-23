@@ -1,0 +1,162 @@
+<html lang="en">
+   <head>
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Document</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/<version>/slimselect.min.js"></script> 
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/<version>/slimselect.min.css">
+   </head>
+   <body>
+      <nav class="navbar navbar-expand-md navbar-light bg-white height_custom sticky-top">
+         <a class="navbar-brand" [routerLink]="['/quickAccess']">
+         <img src="../../../assets/images/header_logo.png" class="img_header"/>
+         </a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item active">
+                  <img src="../../../assets/images/plus_icon.png" class="img_plus" />
+               </li>
+               <li class="nav-item active">
+                  <button class="btn_headershare"> 
+                  <img src="../../../assets/images/btn_headershare.png"/>
+                  Share
+                  </button>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">
+                     <div class="line_noti">
+                        <img src="../../../assets/images/notification.svg" class="notification_images"/>
+                     </div>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">
+                     <div class="line_header">
+                     </div>
+                  </a>
+               </li>
+               <div class="dropdown dropdown_second">
+                  <li class="nav-item"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <a class="nav-link" href="#">
+                     <img src="../../../assets/images/avtar.png"class="img_header_p"/>
+                     <img src="../../../../assets/images/arrow_header.png" class="img_arrow" />
+                     </a>
+                     <div class="dropdown-menu custom_drop" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">
+                           <div class="row">
+                              <div class="col-3">
+                                 <img src="../../../assets/images/avtar.png" class="avtar_img"/> 
+                              </div>
+                              <div class="col-9">
+                                 <h4 class="head_member"> </h4>
+                                 <p class="para_premium">Premium member</p>
+                              </div>
+                           </div>
+                        </a>
+                        <a class="dropdown-item" href="#"><img src="../../../assets/images/profile1.svg"/> My Account</a>
+                        <a class="dropdown-item" href="#"><img src="../../../assets/images/profile2.svg"/> Subscription</a>
+                        <a class="dropdown-item" href="#"><img src="../../../assets/images/profile3.svg"/> Privacy & Terms of use</a>
+                        <a class="dropdown-item"><img src="../../../assets/images/profile1.svg"/> Sign out</a>
+                     </div>
+                  </li>
+               </div>
+            </ul>
+         </div>
+      </nav>
+      <header class="sticky-top-c">
+         <ul class="under_list_notes">
+            <li><a href="#">File</a></li>
+            <li><a href="#">Edit</a></li>
+            <li><a href="#">View</a></li>
+            <li><a href="#">Insert</a></li>
+            <li><a href="#">Format</a></li>
+            <li><a href="#">Help</a></li>
+         </ul>
+         <div class="toolbar">
+            <button class="tool-items fa fa-undo" onclick="document.execCommand('undo',false,'')"></button>
+            <button class="tool-items fa fa-repeat" onclick="document.execCommand('redo',false,'')"></button>
+            <!-- <button class="tool-items fa fa-print" onclick="document.execCommand('italic', false, '');">
+            </button> -->
+            <button class="tool-items fa fa-underline"(click)="execCommand($event,'underline', false)">
+            </button>
+            <button class="tool-items fa fa-italic" (click)="execCommand($event,'italic', false);">
+            </button>
+            <button class="tool-items fa fa-bold" (click)="execCommand($event,'bold', false)">
+            </button>
+            <button class="tool-items fa fa-strikethrough" (click)="execCommand($event,'strikeThrough', false);">
+            </button>
+            <!-- Jutify -->
+            <button class="tool-items fa fa-align-center" onclick="document.execCommand('justifyCenter',false,'')"></button>
+            <button class="tool-items fa fa-align-left" onclick="document.execCommand('justifyLeft',false,'')"></button>
+            <button class="tool-items fa fa-align-right" onclick="document.execCommand('justifyRight',false,'')"></button>
+            <button class="tool-items fa fa-list-ul" onclick="document.execCommand('insertUnorderedList',false,'')"></button>
+            <button class="tool-items fa fa-list-ol" onclick="document.execCommand('insertOrderedList',false,'')"></button>
+            <select class="slect_option" id="subcontacts" (change)="execCommandWithArg('fontName', $event.target.value); ">
+               <option value="Arial">Arial</option>
+               <option value="Arial Black">Arial Black</option>
+               <option value="Comic Sans MS">Comic Sans MS</option>
+               <option value="Courier">Courier</option>
+               <option value="Helvetica">Helvetica</option>
+               <option value="Impact">Impact</option>
+               <option value="Georgia">Georgia</option>
+               <option value="Tahoma">Tahoma</option>
+               <option value="Times New Roman">Times New Roman</option>
+               <option value="Verdana">Verdana</option>
+            </select>
+            <select class="slect_option" (change)="execCommandWithArg('fontSize', $event.target.value);">
+               <option value="1">1px</option>
+               <option value="2">2px</option>
+               <option value="3">3px</option>
+               <option value="4">4px</option>
+               <option value="5">5px</option>
+               <option value="6">6px</option>
+               <option value="7">7px</option>
+            </select>
+            For Color: <input type="color" (change)="execCommandWithArg('foreColor',  $event.target.value);">
+            Background: <input type="color"  (change)="execCommandWithArg('hiliteColor',  $event.target.value);">
+            <button class="tool-items fa fa-link" (click)="link()">
+            </button>
+            <!-- <input class="tool-items fa fa-file-image-o" type="file" id="file" style="display:none" (change)="getImage($event);" accept="image/*" #fileInput/>                           -->
+            <!-- <input class="tool-items fa fa-file-image-o" type="file" accept="image/*" id="file" style="display: none;" (change)="getImage(); " #fileInput> -->
+            <!-- <label for="file" class="tool-items fa fa-file-image-o"></label> -->
+           
+         </div>
+      </header>
+     
+      <div class="">
+         <div class="center">
+            <div class="container">          
+               <div class="row">
+                  <div class="editor" >
+                     <div class="d-flex">
+                        <!-- <input type="text"> -->
+                        <div class="editor_45" placeholder="Write your message.." (keyup)="onKeyUp($event.target.innerHTML)" contenteditable [innerHTML]="content"></div>
+
+                        <!-- <div  class="editor_45" contenteditable="true"  (keyup)="onKeyUp($event)"  #media1 [innerHTML]="content">
+                           <div  ></div>
+                        </div> -->
+                        
+                        <div id="" class="editor_ab" contenteditable>
+                        </div>
+                     </div>             
+                     <div id="" class="editor_3" contenteditable>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          
+         </div>
+      </div>
+  
+   </body>
+</html>

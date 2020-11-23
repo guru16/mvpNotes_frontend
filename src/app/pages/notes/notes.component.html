@@ -1,0 +1,163 @@
+<app-header></app-header>
+
+
+<section class="">
+  
+</section>
+
+<section class="section_file box_section_dash">
+  <div class="row_subject_notes">
+        <h3 class="head_quick">Mathematics Notes</h3>
+        <div class="dropdown label_dropdown">
+            <img src="../../../assets/images/dots_3.png" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="img_subject_e" />
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <a class="dropdown-item" href="#">
+                <div class="box_drop">
+                  
+                    View only Cues
+                </div>
+                </a>               
+              <a class="dropdown-item" href="#">
+                <div class="box_drop">                  
+                    View only Summaries
+              </div>
+              </a>              
+            </div>
+          </div>
+       
+  </div>
+
+  <div class="row">
+ 
+    <div class="col custom_height notes_revert">
+     <div class="box_list_subject padding_custom_notes">
+       <img data-toggle="modal" data-target="#exampleModalCenter1" src="../../../assets/images/plus.png"/>
+       <h1>Add New Note</h1>
+       <p>Click to make new notes</p>
+     </div>
+    </div>
+     <div class="col notes_revert"  *ngFor="let note of notes;">
+     <div class="box_list_subject">
+      <img src="../../../assets/images/Image3_final.png"/>
+
+      <div class="box-bottom">
+        <div class="all_box_p">
+          <div class="box_custom_notes">
+            <h3>{{note.notesName}}</h3>
+            <p>{{note.createdAt | date}}</p>
+          </div>
+        
+          
+          <div class="dropdown label_dropdown">
+            <button class="button_dash_n" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <img src="../../../assets/images/elipsis.JPG" class="img_elipsis" />
+           </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" (click)="editNotes(note.notesName,note._id)" data-toggle="modal"
+                  data-target="#exampleModalCenter3">
+                  <div class="box_drop">
+                    <img src="../../../assets/images/edit_1.png" />
+                    Rename
+                  </div>
+                </a>
+             
+               
+              <a class="dropdown-item" (click)="deleteNotes(note._id)">
+                <div class="box_drop">
+                  <img src="../../../assets/images/delete.png"/> 
+                Move to trash
+              </div>
+              </a>
+               
+                
+              <a class="dropdown-item" href="#">
+                <div class="box_drop">
+                  <img src="../../../assets/images/share.png"/>
+                   Open in new tab
+                  </div>
+                  </a>
+               
+               
+            </div>
+          </div>
+        </div>
+        
+      </div>
+     </div>
+    </div>
+   
+  </div>
+
+  
+ 
+</section>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="">
+        <h5 class="modal-title_dash" id="exampleModalCenterTitle">New Subject</h5>
+        <p class="para_modal_notes">Please enter name of the folder you like.</p>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+       <div class="form-group">
+         <input type="text" class="modal_form" placeholder="Strength of mate"/>
+       </div>
+      </div>
+      <div class="">
+        <button type="button" class="btn_crete">Yes! Create</button>
+        <button type="button" class="btn_leave_it" data-dismiss="modal">Leave it!</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+      
+       <div class="form-group">
+        <label class="lab_note">Note Title</label>
+        <input type="text" class="modal_form" [(ngModel)]="notesName" placeholder="Note Title"/>
+      </div>
+      </div>
+      <div class="">
+        <button type="button" class="btn_crete" (click)='createNotes()'>Yes! Create</button>
+        <button type="button" class="btn_leave_it" data-dismiss="modal">Leave it!</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="">
+        <h5 class="modal-title_dash" id="exampleModalCenterTitle">Change Notes Name</h5>
+        <p class="para_modal_notes">Please enter name of the Note you like.</p>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input type="text" class="modal_form" [(ngModel)]="noteTitle" placeholder="Notes Name" />
+        </div>
+      </div>
+      <div class="">
+        <button type="button" class="btn_crete" (click)="updateNote()">Yes! Create</button>
+        <button type="button" class="btn_leave_it" data-dismiss="modal">Leave it!</button>
+      </div>
+    </div>
+  </div>
+</div>
