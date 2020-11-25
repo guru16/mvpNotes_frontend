@@ -27,33 +27,34 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: SocialAuthService,private commonService: CommonService,private _router: Router,private formBuilder: FormBuilder,private toastr: ToastrService) { }
 
-  ngOnInit(): void {
-    
-    
-    
+  ngOnInit(): void {    
     this.registerForm = this.formBuilder.group({
-      fullName: ['', [
+      firstName: ['', [
         Validators.required
-    ] 
-  ],
+        ] 
+      ],
+      lastName: ['', [
+        Validators.required
+        ] 
+      ],
 
       email: ['', [
         Validators.required,
         Validators.email,
         Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
 
-    ] 
-  ],
-  password:['',
-       [
-        Validators.required,
-        Validators.pattern(/^\S*$/),
-        Validators.minLength(6),
-        Validators.maxLength(12),
+        ] 
+      ],
+      password:['',
+          [
+            Validators.required,
+            Validators.pattern(/^\S*$/),
+            Validators.minLength(6),
+            Validators.maxLength(12),
 
-      ]
-    ],
-      
+          ]
+        ],
+          
    });
   }
 
@@ -81,13 +82,12 @@ export class RegisterComponent implements OnInit {
     let body={
       email:this.registerForm.value.email,
       password:this.registerForm.value.password, 
-      name:this.registerForm.value.fullName
-
+      firstName:this.registerForm.value.firstName,
+      lastName:this.registerForm.value.lastName
      }
      this.commonService.post('register',body).subscribe((data: any)=>{
       if(data.status==200){
         this.toastr.success('Login Successfully', 'success');
-
        let token=data.token;
        localStorage.setItem('token',token);
        this._router.navigate(["myAccount"]);
