@@ -5,21 +5,7 @@
       <h3 class="head_quick">Quick Access</h3>
     </div>
     <div class="box_row_date">
-      <!-- <div class="form-group ">
-        <input type="text"  placeholder="Sort by date" class="form-control form_date_picker" bsDatepicker (bsValueChange)="onValueChange($event)">
-        <img src="../../../../assets/images/arrow_header.png" class="img_arrow_date">
-      </div> -->
-      <!-- <div class="dropdown label_dropdown">
-        <img src="../../../assets/images/dots_3.png" type="button" id="dropdownMenuButton1" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false" class="img_subject_e" />
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <a class="dropdown-item" href="#">
-            <div class="box_drop">
-              Delete
-            </div>
-          </a>
-        </div>
-      </div> -->
+   
     </div>
   </div>
   <div class="row">
@@ -36,7 +22,6 @@
           <div class="all_box_p">
             <div class="box_custom_notes" >
               <h3>{{deleted.subjectName}}</h3>
-              <p>11 </p>
             </div>
             <div class="dropdown label_dropdown">
               <button class="button_dash_n" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -45,7 +30,7 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" >
-                  <div class="box_drop">
+                  <div class="box_drop" (click)="restoresubject(deleted._id)">
                     <img src="../../../assets/images/delete.png" />
                     Restore
                   </div>

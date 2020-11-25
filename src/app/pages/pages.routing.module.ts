@@ -10,7 +10,7 @@ const routes: Routes = [
             { path: 'myAccount', component: MyAccountComponent},
             { path: 'dashboard', component: DashboardComponent},
             { path: 'quickAccess', component: QuickAcessComponent},
-            { path: 'notesWriting', component: NotesWritingComponent},
+            { path: 'notesWriting/:id', component: NotesWritingComponent},
             { path: 'trash', component: TrashComponent},
 
 

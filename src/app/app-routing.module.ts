@@ -5,11 +5,14 @@ import { AuthGuardService } from './core/services';
 const routes: Routes = [
   {
     path: '',
+    canActivate: [AuthGuardService],
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
   },
+  
   {
     path: '',
+    canActivate: [AuthGuardService],
     loadChildren: () => import('./auth/auth.module')
       .then(m => m.AuthModule),
   },

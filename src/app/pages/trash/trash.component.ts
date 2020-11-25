@@ -26,6 +26,21 @@ export class TrashComponent implements OnInit {
   })
   
 
+
+}
+
+restoresubject(id){
+  let body={
+    subjectId:id
+  }
+  this.commonService.post('restoreSubject',body).subscribe((data: any)=>{
+    if(data && data.status==200){
+      this.getDeletedData();
+    }else{
+
+    }
+  })
+
 }
 private checkKey(data,key: string) {
   return(data.hasOwnProperty(key))

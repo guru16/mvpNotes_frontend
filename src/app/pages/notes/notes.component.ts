@@ -26,7 +26,13 @@ export class NotesComponent implements OnInit {
   getNotesForSubje(){
     this.commonService.get(`getNotesBySubject/${this.subjectId}`).subscribe((data: any)=>{
       console.log(data.data)
-      this.notes=data.data
+      if(data.data.length>0){
+        this.notes=data.data
+
+      }else{
+        this.notes=[]
+      }
+
     })
 
   }
@@ -82,6 +88,10 @@ export class NotesComponent implements OnInit {
       }
   
     })
+  }
+
+  routeOnNotes(notesName,id){
+    this._router.navigate([`notesWriting/${id}`]);
   }
 
 }

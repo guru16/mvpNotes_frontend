@@ -11,7 +11,7 @@ export class AuthGuardService {
 
     if (state.url === '/login' || state.url === '/reset-password' || state.url === '/register') {
       if (this.isLoggedIn()) {
-        this._router.navigate(["dashboard"]);
+        this._router.navigate(["quickAccess"]);
         return true;
       }
     } else {

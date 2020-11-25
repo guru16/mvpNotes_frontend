@@ -149,6 +149,11 @@ routeOnSubject(selectedSub,id){
   this._router.navigate([`notes/${this.subjectId}`]);
 
 }
+
+routeOnNotes(notesName,id){
+  this._router.navigate([`notesWriting/${id}`]);
+
+}
 selectSubject(selectedSub,id){
   // alert(id)
   this.selectedSub=selectedSub;

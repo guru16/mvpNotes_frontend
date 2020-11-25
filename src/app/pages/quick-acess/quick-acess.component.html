@@ -13,7 +13,7 @@
         <img src="../../../assets/images/dots_3.png" type="button" id="dropdownMenuButton1" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" class="img_subject_e" />
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item"[routerLink]="['/trash']">
             <div class="box_drop">
               Delete
             </div>
@@ -94,10 +94,10 @@
     </div>
     <div class="col notes_flex_grow col" *ngFor="let note of notes;">
       <div class="box_list_subject">
-        <img src="../../../assets/images/Image3_final.png" />
+        <img (click)="routeOnNotes(note.notesName,note._id)" src="../../../assets/images/Image3_final.png" />
         <div class="box-bottom">
           <div class="all_box_p">
-            <div class="">
+            <div class="" (click)="routeOnNotes(note.notesName,note._id)">
               <h3>{{note.notesName}}</h3>
               <p>{{ note.createdAt | date }} </p>
             </div>
@@ -159,7 +159,7 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <input type="text" class="modal_form" [(ngModel)]="subjectTitle" placeholder="Strength of mate" />
+          <input type="text" class="modal_form" [(ngModel)]="subjectTitle" placeholder="Subject Name" />
         </div>
       </div>
       <div class="">

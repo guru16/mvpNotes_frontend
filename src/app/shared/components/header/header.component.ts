@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../../core/services/common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   lastName:any;
   email:any;
 
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService,private _router: Router) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -29,7 +30,7 @@ export class HeaderComponent implements OnInit {
 
   signOut(){
     localStorage.clear()
-    ///this._router.navigate(["login"]);
+    this._router.navigate(["login"]);
 
   }
 

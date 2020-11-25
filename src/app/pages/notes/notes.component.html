@@ -38,11 +38,11 @@
     </div>
      <div class="col notes_revert"  *ngFor="let note of notes;">
      <div class="box_list_subject">
-      <img src="../../../assets/images/Image3_final.png"/>
+      <img (click)="routeOnNotes(note.notesName,note._id)" src="../../../assets/images/Image3_final.png"/>
 
       <div class="box-bottom">
         <div class="all_box_p">
-          <div class="box_custom_notes">
+          <div class="box_custom_notes" (click)="routeOnNotes(note.notesName,note._id)">
             <h3>{{note.notesName}}</h3>
             <p>{{note.createdAt | date}}</p>
           </div>
