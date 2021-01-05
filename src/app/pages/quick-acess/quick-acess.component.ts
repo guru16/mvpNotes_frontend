@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommonService } from '../../core/services/common.service';
 import { BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
 import * as moment from 'moment';
+import { NgxSpinnerService } from "ngx-spinner";
 
 // import * as $ from 'jquery';
 
@@ -26,7 +27,7 @@ export class QuickAcessComponent implements OnInit {
   noteId:any;
   @ViewChild(BsDatepickerDirective, { static: false }) datepicker: BsDatepickerDirective;
 
-  constructor(private commonService: CommonService,private _router: Router,private formBuilder: FormBuilder) { }
+  constructor(private commonService: CommonService,private _router: Router,private formBuilder: FormBuilder,private spinner: NgxSpinnerService) { }
   myFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
     // Prevent Saturday and Sunday from being selected.
@@ -50,12 +51,16 @@ export class QuickAcessComponent implements OnInit {
   }
 
   creteSubject(){
+    this.spinner.show();
+
     let body={
       subjectTitle:this.subjectTitle
     }
 
     this.commonService.post('createSubject',body).subscribe((data: any)=>{
       if(data.status==200){
+        this.spinner.hide();
+
         $('#exampleModalCenter').modal('hide');
         this.getSubjects()
 
@@ -65,18 +70,21 @@ export class QuickAcessComponent implements OnInit {
 
     },
     (error) => { 
+      this.spinner.hide();
 
   })
 
   }
   updateSubject(){
+    this.spinner.show();
+
     let body={
       subjectTitle:this.subjectTitle,
       subjectId:this.subjectId
     }
 
     this.commonService.post('updateSubject',body).subscribe((data: any)=>{
-      console.log(data)
+      this.spinner.hide();
       if(data.status==200){
         $('#exampleModalCenter2').modal('hide');
         this.getSubjects()
@@ -164,12 +172,16 @@ selectSubject(selectedSub,id){
 
 }
 createNotes(){
+  this.spinner.show();
+
   let body={
     subjectId:this.subjectId?this.subjectId:'',
     notesName:this.notesName
   }
     this.commonService.post('createNotes',body).subscribe((data: any)=>{
       console.log(data)
+      this.spinner.hide();
+
       if(data.status==200){
         this.getNotes()
 
@@ -199,25 +211,33 @@ getNotes(){
 
 }
 deleteSubject(id){
+  this.spinner.show();
+
     this.subjectId=id 
     this.commonService.delete('deleteSubject',this.subjectId).subscribe((data: any)=>{
       if(data.status==200){
+        this.spinner.hide();
+
         this.getSubjects();
       }else{
+        this.spinner.hide();
 
       }
 
     },
     (error) => { 
+      this.spinner.hide();
 
     })
 
 }
 deleteNotes(id){
-  alert(id)
+  this.spinner.show();
   this.commonService.delete('deleteNotes',id).subscribe((data: any)=>{
     console.log(data)
     if(data.status==200){
+      this.spinner.hide();
+
       this.getNotes();
     }
 

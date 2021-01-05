@@ -5,8 +5,7 @@ import { CommonService } from '../../core/services/common.service';
 import { ToastrService } from 'ngx-toastr';
 import { SocialAuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
-
-
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-register',
@@ -25,7 +24,7 @@ export class RegisterComponent implements OnInit {
 
   passwordType:any=false;
 
-  constructor(private authService: SocialAuthService,private commonService: CommonService,private _router: Router,private formBuilder: FormBuilder,private toastr: ToastrService) { }
+  constructor(private authService: SocialAuthService,private commonService: CommonService,private _router: Router,private formBuilder: FormBuilder,private toastr: ToastrService,private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {    
     this.registerForm = this.formBuilder.group({
@@ -78,6 +77,7 @@ export class RegisterComponent implements OnInit {
     if(this.registerForm.invalid){
       return ;
       }
+      this.spinner.show();
 
     let body={
       email:this.registerForm.value.email,
@@ -87,11 +87,14 @@ export class RegisterComponent implements OnInit {
      }
      this.commonService.post('register',body).subscribe((data: any)=>{
       if(data.status==200){
+        this.spinner.hide();
+
         this.toastr.success('Login Successfully', 'success');
        let token=data.token;
        localStorage.setItem('token',token);
        this._router.navigate(["myAccount"]);
       }else{
+        this.spinner.hide();
         //this.error=data.message
         this.toastr.warning(data.message, 'Warning');
 
@@ -101,6 +104,8 @@ export class RegisterComponent implements OnInit {
      
    },
    (error) => { 
+    this.spinner.hide();
+
     this.toastr.error('Something went wrong', 'Error');
     })
   }
@@ -127,6 +132,7 @@ export class RegisterComponent implements OnInit {
   
   sigIn(): void {
     console.log(this.user,1)
+    this.spinner.show();
 
         if(this.user){
           let body={
@@ -140,7 +146,8 @@ export class RegisterComponent implements OnInit {
           this.commonService.post('socialLogin',body).subscribe((data: any)=>{
             console.log(data)
           if(data.status==200){
-            
+            this.spinner.hide();
+
             this.authService.signOut();
             this.user="";
     
@@ -154,6 +161,8 @@ export class RegisterComponent implements OnInit {
 
           }else{
             //this.error=data.message
+            this.spinner.hide();
+
             this.toastr.warning(data.message, 'Warning');
     
             
@@ -162,6 +171,8 @@ export class RegisterComponent implements OnInit {
           
         },
         (error) => { 
+          this.spinner.hide();
+
         this.toastr.error('Something went wrong', 'Error');
         })
         }
