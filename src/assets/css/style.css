@@ -1,5 +1,9 @@
 
-
+@font-face
+{
+    font-family: 'Product Sans';
+    src: url(../fonts/ProductSansRegular.ttf);
+}
 
 @font-face
 {
@@ -37,21 +41,38 @@ button:focus
 }
 .height_custom
 {
-    height: 75px;
+    height: 65px;
 }
 
 input.search_input {
     border: 1px solid var(--unnamed-color-2b50ed);
     border: 1px solid #2b50ed17;
-    border-radius: 9px;
-    height: 50px;
+    border-radius: 7px;
+    height: 40px;
     padding-left: 25px;
     padding-right: 25px;
     font-size: 15px;
     width: 300px;
-    margin-top: 10px;
+    margin-top: 11px;
 }
 
+.search_input::placeholder{
+    font-size: 10px !important;
+}
+.search_input{
+    background-image: url('../../../../assets/images/iconfinder_icon-111-search_314807.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: 10px 10px !important;
+    background-size: 20px 20px !important;
+    padding-left: 40px !important;
+
+}
+.navbar-brand img{
+    width: 60%;
+}
+.form-sear{
+    margin-right: 35px;
+}
 
 
 input.search_input:focus
@@ -60,12 +81,12 @@ input.search_input:focus
 }
 
 .line_noti {
-    width: 51px;
-    height: 51px;
+    width: 40px;
+    height: 40px;
     background: #F7F9FC;
     border-radius: 50%;
     text-align: center;
-    line-height: 47px;
+    line-height: 40px;
 }
 
 .body_al {
@@ -91,15 +112,26 @@ img.img_header {
     margin-top: 25px;
     margin-bottom: 25px;
     padding: 15px;
+    height: 80vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.box_account::-webkit-scrollbar{
+    display: none;
 }
 
 button.btn_account {
     background: transparent linear-gradient(284deg, #2B50ED 0%, #6B85F2 100%) 0% 0% no-repeat padding-box;
     border-radius: 10px;
-    width: 100%;
-    height: 50px;
+    width: 85%;
+    height: 46px;
     border: none;
     margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: auto;
+    text-align: center;
+    font-size: 14px;
+
 }
 
 button.btn_account a {
@@ -141,20 +173,24 @@ img.img_big {
 }
 
 img.img_large {
-    width: 131px;
-    height: 130px;
+    width: 85%;
     border-radius:50%;
 }
 
 .btn_same {
     border-radius: 8px;
-    width: 100%;
-    height: 40px;
+    height: 30px;
     margin-top: 16px;
-    font-family: Productsansbold;
-    font-size: 14px;
+    font-family: 'Product Sans';
     background: transparent;
     border: none;
+    font-size: 12px;
+    padding: 0px 33px;
+    transition: .2s;
+}
+.btn_same:hover{
+    transform: scale(1.10);
+    transition: .2s;
 }
 
 button.btn_change {
@@ -171,6 +207,7 @@ label.lab_first {
     letter-spacing: 0px;
     font-family: Productsans400;
     display: block;
+    font-size: 14px;
 }
 
 input.form_profile {
@@ -182,7 +219,10 @@ input.form_profile {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+    font-size: 13px !important;
+    font-family: 'Product Sans';
 }
+
 button.edit_btn {
     padding-left: 20px;
     padding-right: 20px;
@@ -212,8 +252,8 @@ h3.head_avtar {
     color: #000000;
     padding-top: 20px;
     padding-bottom: 15px;
-    font-family: productsansbold;
-    font-size: 21px;
+    font-family: 'Product Sans';
+    font-size: 20px;
 }
 
 h3.head_personal {
@@ -221,8 +261,8 @@ h3.head_personal {
     color: #000000;
     padding-top: 20px;
     padding-bottom: 15px;
-    font-family: productsansbold;
-    font-size: 21px;
+    font-family: 'Product Sans';
+    font-size: 18px;
 }
 @media(min-width:1100px)
 {
@@ -239,7 +279,7 @@ label.lab_first_edit {
 }
 
 img.img_header_p {
-    height: 45px;
+    height: 41px;
 }
 
 i.font-angle {
@@ -296,9 +336,9 @@ p.para_linked {
 button.btn_connect {
     background: transparent linear-gradient(284deg, #2B50ED 0%, #6B85F2 100%) 0% 0% no-repeat padding-box;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 12px;
     color: #fff;
-    font-family: productsansbold;
+    font-family: 'Product Sans';
     height: 38px;
     padding-left: 25px;
     padding-right: 25px;
@@ -339,22 +379,24 @@ button.btn_connect {
 button.btn_pro {
     background: #000000 0% 0% no-repeat padding-box;
     border-radius: 10px;
-    height: 40px;
+    height: 30px;
     color: #fff;
-    font-family: productsansbold;
-    padding-left: 25px;
-    padding-right: 25px;
+    font-family: 'Product Sans';
+    padding-right: 40px;
     margin-top: 7px;
+    font-size: 12px;
+    padding-left: 40px;
+    border: none;
 }
 
 label.lab_gender {
     line-height: 0;
-    font-size: 15px;
-    font-family: Productsansbold;
-    margin-left: 8px;
+    font-size: 13px;
+    font-family: 'Product Sans';
     position: relative;
     top: -4px;
-    margin-right: 8px;
+    margin-right: 40px;
+    margin-left: 10px;
 }
 @media(min-width:768px)
 {
@@ -384,13 +426,18 @@ label.lab_gender {
     box-shadow: 0px 0px 6px #00000017;
     border: none;
     border-radius: 15px;
+    left: -0px;
+    transition: .2s;
+    padding: 20px;
+    
 }
 
 .dropdown-menu.custom_drop.show a {
     color: #000;
-    font-family: Productsans400;
-    padding-left: 10px;
-    margin-bottom: 10px;
+    font-family: 'Product Sans';
+    padding-left: 0px;
+    margin-bottom: 5px;
+    font-size: 12px;
 }
 
 .dropdown-menu.custom_drop.show img {
@@ -404,11 +451,13 @@ img.avtar_img {
 p.para_premium {
     line-height: 0;
     color: #979797;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 h4.head_member {
-    font-size: 18px;
+    font-size: 15px;
+    font-family: ProductSansBold;
+    font-weight: 600;
 }
 
 @media(max-width:767px)
@@ -452,6 +501,12 @@ img.img_avtar_1 {
     height: 30px;
     margin-left: 15px;
     margin-top:15px;
+    transition: .2s;
+    cursor: pointer;
+}
+img.img_avtar_1:hover{
+    transform: scale(1.05);
+    transition: .2s;
 }
 .redColor{
     color: #FF1818;
@@ -466,7 +521,7 @@ section.box_section_dash {
 }
 
 h3.head_quick {
-    font-size: 23px;
+    font-size: 19px;
     font-family: 'ProductSansbold';
     padding-left: 8px;
 }  
@@ -486,21 +541,22 @@ ul.under_list li {
 .box_list_subject {
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 20px;
-    padding-top: 55px;
+    padding-top: 40px;
    
-    width: 200px;
-    height: 250px;
-    margin-top: 25px;
+    width: 135px;
+    height: 155px;
+    margin-top: 5px;
 }
 
 .box_list_subject img {
     margin: 0 auto;
     display: block;
     cursor: pointer;
+    width: 40%;
 }
 
 .box_list_subject h1 {
-    font-size: 16px;
+    font-size: 12px;
     text-align: center;
     font-family: 'ProductSansBold';
     padding-top: 7px;
@@ -508,31 +564,33 @@ ul.under_list li {
 
 .box_list_subject p {
     letter-spacing: 0px;
-    color: #000000;
+    color: grey;
     font-family: 'ProductSans400';
     text-align: center;
     line-height: 0.5;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .box-bottom {
     position: absolute;
     bottom: 4px;
     border-top: 2px solid #cccccc80;
-    width: 200px;
+    width: 135px;
     padding-top: 9px;
 }
 
 .box-bottom h3 {
-    font-size: 16px;
+    font-size: 12px;
     padding-left: 14px;
     font-family: 'ProductSansBold';
 }
 
 .box-bottom p {
-    padding-left: 14px;
+    padding-left: 13px;
     text-align: left;
-    font-size: 13px;
+    font-size: 10px;
+    font-family: 'Product Sans';
+    font-weight: normal;
 }
 
 section.section_file {
@@ -594,22 +652,23 @@ button.btn_crete {
     color: #fff;
     margin-left: 18px;
     border: none;
-    padding-right: 20px;
-    padding-left: 20px;
-    font-family: 'ProductSansBold';
+    padding-right: 25px;
+    padding-left: 26px;
+    font-family: 'Product Sans';
+    font-size: 13px;
 }
 
 button.btn_leave_it {
     background: transparent;
     border-radius: 10px;
     height: 40px;
-    color: #000;
+    color: #fff;
     margin-left: 18px;
     border: none;
-    padding-right: 20px;
-    padding-left: 20px;
-    font-family: 'ProductSansBold';
-    border: 1px solid #6B85F2;
+    padding-right: 25px;
+    padding-left: 26px;
+    font-family: 'Product Sans';
+    font-size: 13px;
 }
 
 label.lab_note {
@@ -625,11 +684,13 @@ button.btn_add_new {
     margin-right: 15px;
     background: transparent linear-gradient(285deg, #2B50ED 0%, #6B85F2 100%) 0% 0% no-repeat padding-box;
     height: 40px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-family: 'ProductSansBold';
+    padding-left: 25px;
+    padding-right: 25px;
+    font-family: 'Product Sans';
+    font-size: 13px;
     color: #fff;
     border-radius: 5px;
+ 
 }
 
 img.img_search {
@@ -658,8 +719,8 @@ img.img_search {
 
 .box_drop {
     display: flex;
-    font-size: 15px;
-    font-family: 'PRODUCTSANS400';
+    font-size: 12px;
+    font-family: 'Product Sans';
 }
 
 .dropdown.label_dropdown .dropdown-item {

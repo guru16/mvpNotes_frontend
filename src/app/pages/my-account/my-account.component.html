@@ -73,7 +73,7 @@
   <div class="body_al">
       <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 box_account custom_profile_mvp">
+                <div class="col-xl-2 col-lg-2 col-md-2 box_account custom_profile_mvp pt-5">
                    <button class="btn_account">
                        <a href="#">
                         My Account
@@ -90,7 +90,7 @@
                  
                 </div>
                 </div>
-                <div class="col-xl-9 col-lg-9 col-md-9 box_account">
+                <div class="col-xl-9 col-lg-9 col-md-9 box_account px-4">
                     <div class="cusom_flex_profile">
                         <h3 class="head_avtar">Avatar</h3>
                         <button class="btn_pro">Pro User</button>
@@ -181,7 +181,7 @@
                                   </div>
                                   <div class="col-lg-6">
                                     <div class="form-group" [formGroup]="updateForm">
-                                        <label class="lab_first_edit" >Email Address</label>
+                                        <label class="head_personal" >Email Address</label>
                                         <input type="text" [disabled]=!edit name="email" [(ngModel)]="email" formControlName="email" class="form_profile" required [ngClass]="{ 'has-error': submitted && formControls.email.errors }"/>
                                         <div class="alert- mt-2" *ngIf=" submitted && formControls.email.errors || updateForm.controls['email'].dirty || updateForm.controls['email'].touched">
                                             <ng-container *ngIf="updateForm.controls['email'].hasError('required')">
@@ -205,7 +205,7 @@
                                   
                                 </div>
                                 <div class="col-lg-6 ">
-                                    <button (click)="openModal(template)" class="btn_connect">
+                                    <button (click)="openModal(template)" class="btn_connect ml-0">
                                         Change Password
                                     </button>
                                 </div>
@@ -217,7 +217,7 @@
 
                     <hr class="line">
 
-                    <h3 class="head_linked_account">Linked Account</h3>
+                    <h3 class="head_personal">Linked Account</h3>
                     <p class="para_linked">We use this to let you sign in populate your profile information</p>
                 <div class="row">
                     <ul class="under_list_icon">

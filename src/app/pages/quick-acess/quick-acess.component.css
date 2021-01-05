@@ -32,13 +32,20 @@
 
   .box_row_date {
     display: flex;
+    margin-right: -30px;
   }
   .form_date_picker {
     background: transparent;
     border: none;
-    font-size: 16px;
-    font-family: 'ProductSansBold';
+    font-size: 12px;
+    font-family: 'ProductSans400' !important;
     margin-top: -4px;
+    color: black !important;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+  .form_date_picker::placeholder{
+    color: black !important;
   }
   .form_date_picker:focus
   {
@@ -49,6 +56,9 @@
   img.img_arrow_date {
     position: absolute;
     margin-top: -21px;
-    right: 157px;
+    right: 100px;
+  }
+  .file-img{
+    width: 80% !important;
   }
   

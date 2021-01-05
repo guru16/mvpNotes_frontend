@@ -5,7 +5,7 @@
       <h3 class="head_quick">Quick Access</h3>
     </div>
     <div class="box_row_date">
-      <div class="form-group ">
+      <div class="form-group mb-0 " style="width: 63%;">
         <input type="text"  placeholder="Sort by date" class="form-control form_date_picker" bsDatepicker (bsValueChange)="onValueChange($event)">
         <img src="../../../../assets/images/arrow_header.png" class="img_arrow_date">
       </div>
@@ -85,7 +85,7 @@
     <h3 class="head_quick">My Files</h3>
   </div>
   <div class="row">
-    <div class="col custom_height">
+    <div class="col notes_flex_grow custom_height">
       <div class="box_list_subject padding_custom_notes">
         <img data-toggle="modal" (click)=addNotesModal() src="../../../assets/images/plus.png" />
         <h1>Add New Note</h1>
@@ -94,7 +94,7 @@
     </div>
     <div class="col notes_flex_grow col" *ngFor="let note of notes;">
       <div class="box_list_subject">
-        <img (click)="routeOnNotes(note.notesName,note._id)" src="../../../assets/images/Image3_final.png" />
+        <img (click)="routeOnNotes(note.notesName,note._id)" src="../../../assets/images/Image3_final.png"  class="file-img"/>
         <div class="box-bottom">
           <div class="all_box_p">
             <div class="" (click)="routeOnNotes(note.notesName,note._id)">
@@ -149,7 +149,7 @@
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div class="modal-content p-3">
       <div class="">
         <h5 class="modal-title_dash" id="exampleModalCenterTitle">New Subject</h5>
         <p class="para_modal_notes">Please enter name of the folder you like.</p>
@@ -219,7 +219,7 @@
 <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div class="modal-content p-4">
       <div class="">
         <h5 class="modal-title_dash" id="exampleModalCenterTitle">For which subject do you want to make notes?</h5>
         <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
